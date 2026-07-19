@@ -1,0 +1,201 @@
+.footer {
+  width: 100%;
+  padding: 4rem 1rem 1rem 1rem; /* Extra padding on top to separate from Contact section */
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.glassContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 63, 94, 0.2); 
+  border-radius: 32px; /* Fully rounded premium card look */
+  padding: 4rem 3rem 2rem 3rem;
+  box-shadow: 0 10px 40px rgba(74, 4, 78, 0.08);
+}
+
+/* --- Top Section Grid --- */
+.topSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Brand column is wider */
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+/* Column Titles */
+.columnTitle {
+  color: #f43f5e; /* Rose */
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Brand Column --- */
+.logoText {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #f43f5e, #f97316); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #4a044e; /* Deep Violet */
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.socialRow {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(244, 63, 94, 0.1);
+  color: #f43f5e;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.socialIcon:hover {
+  background: linear-gradient(135deg, #f43f5e, #f97316);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(244, 63, 94, 0.3);
+}
+
+/* --- Links Column --- */
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navLinks a {
+  color: #4a044e; /* Deep Violet */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: fit-content;
+}
+
+.navLinks a:hover {
+  color: #f97316; /* Orange on hover */
+  transform: translateX(5px); /* Slide right slightly on hover */
+}
+
+/* --- Info Column --- */
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoList li {
+  color: #4a044e;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.infoList strong {
+  color: #4a044e;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* --- Bottom Section --- */
+.divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(244, 63, 94, 0.3), transparent);
+  margin-bottom: 2rem;
+}
+
+.copyrightRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyrightRow p {
+  color: #4a044e;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.madeWith {
+  background: linear-gradient(135deg, #f43f5e, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 968px) {
+  .topSection {
+    grid-template-columns: 1fr 1fr; /* Drops to 2 columns on tablets */
+  }
+  .brandColumn {
+    grid-column: 1 / -1; /* Brand takes full width */
+    text-align: center;
+  }
+  .description {
+    margin: 0 auto 2rem auto;
+  }
+  .socialRow {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .glassContainer {
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 24px;
+  }
+  .footer{
+    width: 90%;
+  }
+  .topSection {
+    grid-template-columns: 1fr; /* Stacks everything on mobile */
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .navLinks {
+    align-items: center;
+  }
+  .navLinks a:hover {
+    transform: translateY(-3px); /* Slide up instead of right on mobile */
+  }
+  .copyrightRow {
+    flex-direction: column;
+    text-align: center;
+  }
+}

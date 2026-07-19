@@ -1,0 +1,202 @@
+  
+    /* --- Floating Wrapper --- */
+.headerWrapper {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1200px;
+  z-index: 1000;
+  animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- The Frosted Glass Box (Taller & Thicker) --- */
+.glassNav {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(244, 63, 94, 0.2); 
+  border-radius: 20px;
+  padding: 16px 28px; /* Increased padding for more height */
+  min-height: 85px; /* Forces the header to be taller */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(244, 63, 94, 0.08); 
+  position: relative; 
+  transition: all 0.4s ease;
+}
+
+/* --- Fixed Logo Styling (Larger & Never Squished) --- */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoImage {
+  height: 75px; /* Increased height so it's clearly visible */
+  width: auto;
+  max-width: 150px;
+  object-fit: contain; /* Prevents the image from squishing */
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+}
+
+/* --- Desktop Navigation --- */
+.desktopMenu {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.navLink {
+  color: #4a044e; 
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #f43f5e, #f97316); 
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.navLink:hover {
+  color: #e11d48; 
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* --- Sunset Glowing Button --- */
+.dashboardBtn {
+  background: linear-gradient(135deg, #f43f5e, #f97316); 
+  color: white;
+  padding: 12px 28px; /* Slightly larger button to match taller header */
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  text-align: center;
+}
+
+.dashboardBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.5);
+}
+
+/* --- Mobile Menu Button (Hamburger) --- */
+.hamburger {
+  display: none;
+  background: rgba(244, 63, 94, 0.05);
+  border: 1px solid rgba(244, 63, 94, 0.1);
+  color: #4a044e; 
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:active {
+  transform: scale(0.9);
+}
+
+/* --- Mobile Dropdown Frosted Menu --- */
+.mobileMenu {
+  position: absolute;
+  top: calc(100% + 18px); /* Adds more space so it doesn't touch the header */
+  left: 0;
+  width: 88%;
+  background: rgba(255, 255, 255, 0.95); /* Slightly more solid for readability */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  border-radius: 16px;
+  padding: 24px; /* Increased padding inside the menu */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: 0 20px 50px rgba(244, 63, 94, 0.15);
+  animation: dropDownAnim 0.3s ease forwards;
+  transform-origin: top center;
+  z-index: 999;
+}
+
+.mobileMenu .navLink {
+  font-size: 1.15rem;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: transparent;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: background 0.3s ease;
+}
+
+.mobileMenu .navLink:hover {
+  background: rgba(244, 63, 94, 0.08); 
+  color: #e11d48;
+}
+
+.mobileMenu .navLink::after {
+  display: none; 
+}
+
+/* --- 📱 Mobile Responsiveness --- */
+@media (max-width: 860px) {
+  .headerWrapper {
+    width: 92%;
+    top: 15px;
+  }
+  .desktopMenu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .glassNav {
+    padding: 14px 20px;
+    min-height: 75px; /* Ensures it stays thick on mobile too */
+  }
+  .logoImage {
+    height: 55px; /* Keeps logo prominent on mobile */
+  }
+}
+
+/* --- Keyframe Animations --- */
+@keyframes slideDown {
+  0% { top: -100px; opacity: 0; transform: translateX(-50%) scale(0.95); }
+  100% { top: 15px; opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+@keyframes dropDownAnim {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
