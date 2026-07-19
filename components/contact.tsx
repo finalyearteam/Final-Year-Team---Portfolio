@@ -79,7 +79,7 @@ export default function Contact() {
               <span className={styles.icon}>✉️</span>
               <div>
                 <strong>Email</strong>
-                <p>finalyearteam.gcoerc@gmail.com</p>
+                <p>finalyearteam.gcoerc@ gmail.com</p>
               </div>
             </div>
 
