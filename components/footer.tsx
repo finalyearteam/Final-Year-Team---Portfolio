@@ -9,7 +9,7 @@ export default function Footer() {
           
           {/* Column 1: Brand & Mission */}
           <div className={styles.brandColumn}>
-            <h3 className={styles.logoText}>Final Year Hub</h3>
+            <h3 className={styles.logoText}>Final Year Team</h3>
             <p className={styles.description}>
               Showcasing innovation, academic excellence, and collaborative development. 
               A dedicated digital space for our final year engineering project.
