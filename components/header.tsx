@@ -29,7 +29,7 @@ export default function Header() {
           <Link href="#about" className={styles.navLink}>About</Link>
           <Link href="#team" className={styles.navLink}>Team</Link>
           <Link href="#contact" className={styles.navLink}>Contact</Link>
-          <Link href="/dashboard" className={styles.dashboardBtn}>
+          <Link href="dashboard" className={styles.dashboardBtn}>
             Dashboard
           </Link>
         </div>
