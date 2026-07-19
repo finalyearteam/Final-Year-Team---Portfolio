@@ -5,8 +5,8 @@ import styles from "./Contact.module.css";
 
 // Firebase imports are fully active
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../lib/firebase"; // Update this path if your firebase.js is in a different folder
-    
+import { db } from "../src/firebase"; // Update this path if your firebase.js is in a different folder
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",

@@ -153,7 +153,6 @@
 
 .madeWith {
   background: linear-gradient(135deg, #f43f5e, #f97316);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
 }
