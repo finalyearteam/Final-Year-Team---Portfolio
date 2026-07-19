@@ -25,7 +25,7 @@ export default function Header() {
 
         {/* Desktop Links (Hidden on Mobile) */}
         <div className={styles.desktopMenu}>
-          <Link href="/home" className={styles.navLink}>Home</Link>
+          <Link href="/" className={styles.navLink}>Home</Link>
           <Link href="#about" className={styles.navLink}>About</Link>
           <Link href="#team" className={styles.navLink}>Team</Link>
           <Link href="#contact" className={styles.navLink}>Contact</Link>
