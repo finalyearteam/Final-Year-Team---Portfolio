@@ -25,7 +25,7 @@ export default function Header() {
 
         {/* Desktop Links (Hidden on Mobile) */}
         <div className={styles.desktopMenu}>
-          <Link href="#home" className={styles.navLink}>Home</Link>
+          <Link href="/home" className={styles.navLink}>Home</Link>
           <Link href="#about" className={styles.navLink}>About</Link>
           <Link href="#team" className={styles.navLink}>Team</Link>
           <Link href="#contact" className={styles.navLink}>Contact</Link>
@@ -59,7 +59,7 @@ export default function Header() {
         {/* Mobile Dropdown (Visible only when button is clicked on Mobile) */}
         {isMobileOpen && (
           <div className={styles.mobileMenu}>
-            <Link href="#home" className={styles.navLink} onClick={closeMenu}>Home</Link>
+            <Link href="/home" className={styles.navLink} onClick={closeMenu}>Home</Link>
             <Link href="#about" className={styles.navLink} onClick={closeMenu}>About</Link>
             <Link href="#team" className={styles.navLink} onClick={closeMenu}>Team</Link>
             <Link href="#contact" className={styles.navLink} onClick={closeMenu}>Contact</Link>
