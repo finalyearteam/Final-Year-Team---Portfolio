@@ -134,7 +134,7 @@ export default function ProjectHub() {
             </div>
           </Link>
 
-          <Link href="/dashboard/tasks" className={`${styles.menuCard} ${styles.delay6}`}>
+          <Link href="task-board" className={`${styles.menuCard} ${styles.delay6}`}>
             <div className={styles.iconWrapper}>✅</div>
             <div className={styles.cardContent}>
               <h2 className={styles.menuTitle}>Task Board</h2>
