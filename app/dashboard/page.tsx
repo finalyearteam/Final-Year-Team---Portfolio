@@ -94,7 +94,7 @@ export default function ProjectHub() {
         {/* Responsive Grid */}
         <div className={styles.grid}>
           
-          <Link href="/dashboard/notice-board" className={`${styles.menuCard} ${styles.delay1}`}>
+          <Link href="notice-board" className={`${styles.menuCard} ${styles.delay1}`}>
             <div className={styles.iconWrapper}>📌</div>
             <div className={styles.cardContent}>
               <h2 className={styles.menuTitle}>Notice Board</h2>
