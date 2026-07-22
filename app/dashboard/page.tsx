@@ -110,7 +110,7 @@ export default function ProjectHub() {
             </div>
           </Link>
 
-          <Link href="/dashboard/penalty-board" className={`${styles.menuCard} ${styles.delay3}`}>
+          <Link href="penalty-board" className={`${styles.menuCard} ${styles.delay3}`}>
             <div className={styles.iconWrapper}>⚠️</div>
             <div className={styles.cardContent}>
               <h2 className={styles.menuTitle}>Penalty Board</h2>
