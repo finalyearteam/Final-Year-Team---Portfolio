@@ -126,7 +126,7 @@ export default function ProjectHub() {
             </div>
           </Link>
 
-          <Link href="/dashboard/chat" className={`${styles.menuCard} ${styles.delay5}`}>
+          <Link href="chat-board" className={`${styles.menuCard} ${styles.delay5}`}>
             <div className={styles.iconWrapper}>💬</div>
             <div className={styles.cardContent}>
               <h2 className={styles.menuTitle}>Chat Section</h2>
