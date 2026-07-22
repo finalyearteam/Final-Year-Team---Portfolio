@@ -102,7 +102,7 @@ export default function ProjectHub() {
             </div>
           </Link>
 
-          <Link href="/dashboard/leave-board" className={`${styles.menuCard} ${styles.delay2}`}>
+          <Link href="leave-board" className={`${styles.menuCard} ${styles.delay2}`}>
             <div className={styles.iconWrapper}>🗓️</div>
             <div className={styles.cardContent}>
               <h2 className={styles.menuTitle}>Leave Board</h2>
