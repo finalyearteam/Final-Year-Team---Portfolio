@@ -1,0 +1,379 @@
+/* PresentationBoard.module.css - Premium Glassmorphism UI */
+
+/* --- 1. KEYFRAME ANIMATIONS --- */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+}
+
+/* --- 2. BASE LAYOUT & BACKGROUND --- */
+.pageWrapper {
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #f8fafc, #e0e7ff, #f1f5f9, #ede9fe);
+  background-size: 400% 400%;
+  animation: gradientPan 15s ease infinite;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #0f172a;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background overlay pattern */
+.pageWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: radial-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- 3. HEADER (FROSTED GLASS) --- */
+.header {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.25rem 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(30, 41, 59, 0.1);
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  animation: slideUpFade 0.6s ease-out forwards;
+}
+
+.headerLeft { display: flex; align-items: center; gap: 1.25rem; }
+
+.backBtn {
+  text-decoration: none;
+  background: white;
+  color: #475569;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.backBtn:hover { 
+  background: #f8fafc; 
+  color: #0f172a; 
+  transform: translateX(-4px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.title { 
+  margin: 0; 
+  font-size: 1.75rem; 
+  font-weight: 800; 
+  background: linear-gradient(135deg, #1e293b, #4338ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.addBtn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.addBtn:hover { 
+  transform: translateY(-3px) scale(1.02); 
+  box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.5); 
+}
+
+/* --- 4. MAIN FEED & CARDS --- */
+.feed { margin-top: 1rem; }
+
+.emptyState {
+  text-align: center;
+  padding: 4rem;
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: rgba(255,255,255,0.5);
+  border-radius: 1.5rem;
+  border: 1px dashed #cbd5e1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 2rem;
+}
+
+/* Premium Card Styling */
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUpFade 0.6s ease-out backwards;
+}
+
+/* Add slight stagger to cards */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+.card:hover { 
+  transform: translateY(-8px); 
+  box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.15); 
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+}
+
+.presTitle { 
+  margin: 0; 
+  font-size: 1.5rem; 
+  font-weight: 800; 
+  color: #0f172a; 
+  line-height: 1.3; 
+  letter-spacing: -0.01em;
+}
+
+.actionButtons { display: flex; gap: 0.5rem; }
+.actionButtons button {
+  background: white; 
+  border: 1px solid #e2e8f0; 
+  border-radius: 0.75rem;
+  padding: 0.6rem; 
+  cursor: pointer; 
+  transition: all 0.2s ease; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.actionButtons button:hover { transform: scale(1.1); }
+.deleteBtn:hover { background: #fef2f2 !important; border-color: #fca5a5 !important; }
+
+.description { 
+  color: #475569; 
+  font-size: 1rem; 
+  line-height: 1.6; 
+  margin-bottom: 1.75rem; 
+}
+
+/* Inner Data Grids */
+.rolesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: rgba(248, 250, 252, 0.8);
+  padding: 1.25rem;
+  border-radius: 1rem;
+  margin-bottom: 1.75rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.roleBox { display: flex; flex-direction: column; gap: 0.4rem; }
+.roleBox span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; font-weight: 700; }
+.roleBox strong { color: #1e293b; font-size: 1.05rem; }
+
+/* Links & Attachments */
+.linksSection { display: flex; flex-direction: column; gap: 1.25rem; margin-top: auto; }
+
+.primaryLinkBtn {
+  background: #eef2ff; 
+  color: #4338ca; 
+  padding: 1rem; 
+  border-radius: 1rem;
+  text-align: center; 
+  font-weight: 700; 
+  text-decoration: none; 
+  border: 1px solid #c7d2fe;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.primaryLinkBtn:hover { 
+  background: #4338ca; 
+  color: white; 
+  box-shadow: 0 10px 20px -5px rgba(67, 56, 202, 0.3); 
+}
+
+.attachmentsList { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.75rem; 
+  background: rgba(248, 250, 252, 0.8); 
+  padding: 1.25rem; 
+  border-radius: 1rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+.attachmentsList strong { font-size: 0.85rem; color: #475569; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em;}
+.attachmentItem { 
+  color: #4f46e5; 
+  text-decoration: none; 
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  transition: 0.2s; 
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.attachmentItem::before { content: "📎"; font-size: 0.8rem;}
+.attachmentItem:hover { color: #312e81; transform: translateX(5px); }
+
+.socialBox { 
+  background: linear-gradient(to right, #fffbeb, #fef3c7); 
+  padding: 1.25rem; 
+  border-radius: 1rem; 
+  border: 1px dashed #fcd34d; 
+}
+.socialBox strong { display: block; font-size: 0.85rem; color: #b45309; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;}
+.socialBox p { margin: 0; font-size: 0.95rem; color: #92400e; white-space: pre-wrap; font-weight: 500;}
+
+/* --- 5. MODALS (FROSTED OVERLAY) --- */
+.modalOverlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.4); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; padding: 1.5rem;
+  animation: slideUpFade 0.3s ease-out forwards;
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.95); 
+  padding: 3rem; 
+  border-radius: 1.75rem;
+  width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid white;
+}
+
+.modalContent h2 { margin-top: 0; color: #0f172a; margin-bottom: 2rem; font-size: 1.75rem; font-weight: 800;}
+
+.form { display: flex; flex-direction: column; gap: 1.5rem; }
+.inputRow { display: flex; gap: 1.5rem; }
+.inputRow > div { flex: 1; }
+.inputGroup { display: flex; flex-direction: column; gap: 0.6rem; }
+.inputGroup label { font-size: 0.9rem; font-weight: 700; color: #334155; }
+.inputGroup input, .inputGroup textarea {
+  padding: 1rem; 
+  border: 2px solid #e2e8f0; 
+  border-radius: 1rem;
+  outline: none; 
+  font-family: inherit; 
+  font-size: 1rem; 
+  transition: all 0.3s ease; 
+  width: 100%; 
+  box-sizing: border-box; 
+  background: #f8fafc;
+}
+.inputGroup input:focus, .inputGroup textarea:focus { 
+  border-color: #6366f1; 
+  background: #ffffff; 
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15); 
+}
+
+/* Dynamic Attachment Inputs */
+.attachmentSection { 
+  background: #f8fafc; 
+  padding: 1.5rem; 
+  border-radius: 1rem; 
+  border: 1px solid #e2e8f0; 
+  display: flex; flex-direction: column; gap: 1rem; 
+}
+.attachmentHeader { display: flex; justify-content: space-between; align-items: center; }
+.attachmentHeader label { font-size: 0.9rem; font-weight: 700; color: #334155; }
+.addAttBtn { 
+  background: #e0e7ff; color: #4338ca; border: none; padding: 0.5rem 1rem; 
+  border-radius: 0.75rem; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: 0.2s;
+}
+.addAttBtn:hover { background: #c7d2fe; transform: scale(1.05);}
+
+.attachmentRow { display: flex; gap: 0.75rem; }
+.attachmentRow input {
+  padding: 0.85rem; border: 2px solid #cbd5e1; border-radius: 0.75rem; flex: 1; font-size: 0.95rem; outline: none; transition: 0.3s;
+}
+.attachmentRow input:focus { border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
+.removeAttBtn { 
+  background: white; color: #ef4444; border: 2px solid #fca5a5; border-radius: 0.75rem; 
+  width: 45px; cursor: pointer; font-weight: bold; transition: 0.2s; font-size: 1.2rem;
+}
+.removeAttBtn:hover { background: #ef4444; color: white; border-color: #ef4444;}
+
+.modalActions { display: flex; justify-content: flex-end; gap: 1.25rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.cancelBtn { 
+  background: white; color: #475569; padding: 1rem 2rem; border: 2px solid #e2e8f0; 
+  border-radius: 1rem; cursor: pointer; font-weight: 700; transition: 0.2s; font-size: 1rem;
+}
+.cancelBtn:hover { background: #f1f5f9; color: #0f172a; }
+.primaryBtn { 
+  background: linear-gradient(135deg, #6366f1, #4f46e5); color: white; 
+  padding: 1rem 2.5rem; border: none; border-radius: 1rem; font-weight: 700; 
+  cursor: pointer; font-size: 1rem; transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.primaryBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
+.primaryBtn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none;}
+
+/* --- 6. RESPONSIVE QUERIES --- */
+@media (max-width: 768px) {
+  .pageWrapper { padding: 1rem 0.5rem; }
+  .header { flex-direction: column; align-items: stretch; padding: 1.5rem; border-radius: 1rem;}
+  .headerLeft { justify-content: space-between; width: 100%; }
+  .addBtn { width: 100%; text-align: center; padding: 1rem; }
+  
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 1.5rem; }
+  .rolesGrid { grid-template-columns: 1fr; }
+  
+  .modalContent { padding: 1.5rem; border-radius: 1rem;}
+  .inputRow { flex-direction: column; gap: 1.5rem; }
+  .attachmentRow { flex-direction: column; }
+  .removeAttBtn { width: 100%; padding: 0.75rem; }
+  .modalActions { flex-direction: column-reverse; }
+  .cancelBtn, .primaryBtn { width: 100%; text-align: center; }
+}
